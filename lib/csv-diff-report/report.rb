@@ -35,12 +35,20 @@ class CSVDiff
         #   called for each line of text to be output. The argument to the block
         #   will be an array of text chunks, each of which may be accompanied by
         #   optional foreground and background colours.
-        def initialize(left= nil, right = nil, &block)
+        def initialize(left= nil, right = nil, left_total_st = 0, left_rows_per_st= 0, left_cached_size=0, right_total_st = 0, right_rows_per_st= 0, right_cached_size=0, seed_group=nil, link_fields=[], &block)
             @left = left
             @right = right
             @echo_handler = block
             @diffs = []
             @color = true
+            @seed_group = seed_group
+            @left_total_st = left_total_st
+            @right_total_st = right_total_st
+            @left_rows_per_st = left_rows_per_st
+            @right_rows_per_st = right_rows_per_st
+            @left_cached_size = left_cached_size
+            @right_cached_size = right_cached_size
+            @link_fields = link_fields
         end
 
 
